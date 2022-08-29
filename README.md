@@ -1,6 +1,9 @@
 # 203rd-solution-AMEX-Kaggle-Competition
 https://www.kaggle.com/competitions/amex-default-prediction
 
+# Introduction
+This is a kaggle competition that we used machine learning techniques to solve real world problems. Our goal is to predict the probability that a customer fails to pay back their credit card balakce account. In this competition, we trained a public dataset with roungly 459K rows. A private test dataset with 900K records was used to evaluate our models. 
+ 
 # Feature engineering
 1.	To handle numerical features that have more than 90% missing values, we only kept their ‘last’ values.
 2.	Low cardinality numerical features, whose unique values are less or equal to 4, we computed ‘last’ and ‘nuique’ (the number of unique values). The idea come from https://www.kaggle.com/code/illidan7/amex-basic-feature-engineering-1500-features. 
@@ -18,7 +21,6 @@ https://www.kaggle.com/code/roberthatch/xgboost-pyramid-cv-0-7968
 Model 2 included after-pay features and obtained a cv score of roughly 0.7956. 
 
 # Ensemble:
-
 We submitted two files at the end of competition. We applied two different ensemble techniques. 
 1.	Weighted average (see notebook ‘Weighted average’): 2 lightgbm models + 1 public xgb model. The algorithm is written to basically optimize out-of-fold cv score. Eventually, this model has oof cv score: 0.79956371, public: 0.79928, private: 0.80717.
 2.	Stacking (see notebook ‘Stacking’): 2 lightgbm models + 1 public xgb model + 1 private xgb model. Fit a logistic regression model to the out-of-fold predictions of these models. This model has oof cv score: 0.79933, public: 0.79939, private: 0.80739. 
