@@ -23,6 +23,6 @@ Model 2 included after-pay features and obtained a cv score of roughly 0.7956.
 # Ensemble:
 We submitted two files at the end of competition. We applied two different ensemble techniques. 
 1.	Weighted average (see notebook ‘Weighted average’): 2 lightgbm models + 1 public xgb model. The algorithm is written to basically optimize out-of-fold cv score. Eventually, this model has oof cv score: 0.79956371, public: 0.79928, private: 0.80717.
-2.	Stacking (see notebook ‘Stacking’): 2 lightgbm models + 1 public xgb model + 1 private xgb model. Fit a logistic regression model to the out-of-fold predictions of these models. This model has oof cv score: 0.79933, public: 0.79939, private: 0.80739. 
+2.	Stacking (see notebook ‘Stacking’): 2 lightgbm models + 1 public xgb model + 1 private xgb model. Fit a logistic regression model to the out-of-fold predictions of these models. This model has out-of-fold cv score: 0.79933, public: 0.79939, private: 0.80739. 
 
 
