@@ -2,7 +2,7 @@
 https://www.kaggle.com/competitions/amex-default-prediction
 
 # Introduction
-This is a kaggle competition that we used machine learning techniques to solve real world problems. Our goal is to predict the probability that a customer fails to pay back their credit card balakce account. In this competition, we trained a public dataset with roungly 459K rows. A private test dataset with 900K records was used to evaluate our models. 
+This is a kaggle competition that we used machine learning techniques to solve real world problems. Our goal is to predict the probability that a customer fails to pay back their credit card balakce account. In this competition, we trained a public dataset with roungly 459K rows. Our final models were evaluated by a private test dataset which contains 900K records. 
  
 # Feature engineering
 1.	To handle numerical features that have more than 90% missing values, we only kept their ‘last’ values.
@@ -15,14 +15,14 @@ This is a kaggle competition that we used machine learning techniques to solve r
 8.	After pay features (only used in XGBoost model), difference between payments and balance/spendings (https://www.kaggle.com/code/jiweiliu/rapids-cudf-feature-engineering-xgb).
 
 # Models
-1.	Two LightGBM models, dart: We train two light gradient boosting models with different parameters. Model 1 has feature fraction of 0.3 and model 2 has 0.25.  It turns out model 1 has out-of-fold cv score of 0.798463 and model 2 has out-of-fold cv score of 0.798061. 
-2.	Two XGBoost models: Model 1 comes from a public notebook in Kaggle. The link is given below:
+1.	Two LightGBM models, dart (see notebook 'LightGBM.ipynb'): We train two light gradient boosting models with different parameters. Model 1 has feature fraction of 0.3 and model 2 has 0.25.  It turns out model 1 has out-of-fold cv score of 0.798463 and model 2 has out-of-fold cv score of 0.798061. 
+2.	Two XGBoost models (see notebook 'XGBoost model.ipynb'): Model 1 comes from a public notebook in Kaggle. The link is given below:
 https://www.kaggle.com/code/roberthatch/xgboost-pyramid-cv-0-7968
 Model 2 included after-pay features and obtained a cv score of roughly 0.7956. 
 
 # Ensemble:
 We submitted two files at the end of competition. We applied two different ensemble techniques. 
-1.	Weighted average (see notebook ‘Weighted average’): 2 lightgbm models + 1 public xgb model. The algorithm is written to basically optimize out-of-fold cv score. Eventually, this model has oof cv score: 0.79956371, public: 0.79928, private: 0.80717.
+1.	Weighted average (see notebook ‘Weighted average’): 2 lightgbm models + 1 public xgb model. we wrote a simple algorithm that optimizes the out-of-fold cv score. Eventually, this model has out-of-fold cv score: 0.79956371, public: 0.79928, private: 0.80717.
 2.	Stacking (see notebook ‘Stacking’): 2 lightgbm models + 1 public xgb model + 1 private xgb model. Fit a logistic regression model to the out-of-fold predictions of these models. This model has out-of-fold cv score: 0.79933, public: 0.79939, private: 0.80739. 
 
 
