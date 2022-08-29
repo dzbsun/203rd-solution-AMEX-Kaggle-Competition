@@ -1,4 +1,4 @@
-# 203rd-solution-AMEX-Kaggle-Competition
+# 202nd-solution-AMEX-Kaggle-Competition
 https://www.kaggle.com/competitions/amex-default-prediction
 
 # Introduction
