@@ -12,7 +12,7 @@ This is a kaggle competition that we used machine learning techniques to solve r
 5.	Finally, we generated ‘last’, ‘nuique’ and ‘count’ for categorical features. 
 6.	We constructed a ‘last-mean’ feature, which is defined as a difference between last and mean. This feature captures the latest changes (https://www.kaggle.com/code/ragnar123/amex-lgbm-dart-cv-0-7977). 
 7.	We also invented a ‘max-last ratio’ feature, which is defined as max-last/max-min. This feature helps us to understand better about the latest data. If the latest data is max, then it will be zero. If it is min, then it will be one. If a customer only has the one record, then it will be infinity. 
-8.	After pay features (only used in XGBoost model), difference between payments and balance/spendings (https://www.kaggle.com/code/jiweiliu/rapids-cudf-feature-engineering-xgb).
+8.	XGBoost model2 also inlcudes after-pay features. After-pay features are defined as differences between payments and balance/spendings (https://www.kaggle.com/code/jiweiliu/rapids-cudf-feature-engineering-xgb).
 
 # Models
 1.	Two LightGBM models, dart (see notebook 'LightGBM.ipynb'): We train two light gradient boosting models with different parameters. Model 1 has feature fraction of 0.3 and model 2 has 0.25.  It turns out model 1 has out-of-fold cv score of 0.798463 and model 2 has out-of-fold cv score of 0.798061. 
