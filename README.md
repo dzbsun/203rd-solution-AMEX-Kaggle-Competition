@@ -1,4 +1,6 @@
 # 203rd-solution-AMEX-Kaggle-Competition
+https://www.kaggle.com/competitions/amex-default-prediction
+
 # Feature engineering
 1.	To handle numerical features that have more than 90% missing values, we only kept their ‘last’ values.
 2.	Low cardinality numerical features, whose unique values are less or equal to 4, we computed ‘last’ and ‘nuique’ (the number of unique values). The idea come from https://www.kaggle.com/code/illidan7/amex-basic-feature-engineering-1500-features. 
